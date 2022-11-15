@@ -74,16 +74,20 @@ public class MainApplication extends Application implements ReactApplication {
     }
 ```
 
-4. Add activityrecognition service in `android/app/src/main/AndroidManifest.xml`
+4. Add activityrecognition service in `android/app/src/main/AndroidManifest.xml`.
+Also add the `ACTIVITY_RECOGNITION` permission on the manifest to support Android API Level above 28
 ```xml
-...
-<application ...>
+<manifest ...>
+    <uses-permission android:name="android.permission.ACTIVITY_RECOGNITION"/>
+    <application ...>
+        ...
+        <service android:name="com.xebia.activityrecognition.DetectionService"/>
+        ...
+    </application>
     ...
-    <service android:name="com.xebia.activityrecognition.DetectionService"/>
-    ...
-</application>
-...
+</manifest>
 ```
+> Manifest updates thanks to [CAVAh](https://github.com/CAVAh)
 
 #### iOS
 
