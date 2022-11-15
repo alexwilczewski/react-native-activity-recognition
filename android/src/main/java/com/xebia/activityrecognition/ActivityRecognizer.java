@@ -172,7 +172,7 @@ public class ActivityRecognizer implements ConnectionCallbacks, OnConnectionFail
     // Create a PendingIntent to be sent for each activity detection
     private PendingIntent getActivityDetectionPendingIntent() {
         Intent intent = new Intent(mReactContext, DetectionService.class);
-        return PendingIntent.getService(mReactContext, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+        return PendingIntent.getService(mReactContext, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT & PendingIntent.FLAG_MUTABLE);
     }
 
     // Create key-value map with activity recognition result
